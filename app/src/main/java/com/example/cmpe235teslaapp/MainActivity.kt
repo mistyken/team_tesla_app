@@ -1,17 +1,37 @@
 package com.example.cmpe235teslaapp
 
+import android.os.AsyncTask
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import okhttp3.*
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
 //    var url = "https://owner-api.teslamotors.com/"
-    var url = "https://ya6s9ee52e.execute-api.us-east-1.amazonaws.com/dev/"
-    private val client = OkHttpClient()
+    class LoginAsyncTask : AsyncTask<String?, Void?, String>() {
+        var url = "https://ya6s9ee52e.execute-api.us-east-1.amazonaws.com/dev/"
+        private val client = OkHttpClient()
+
+        override fun doInBackground(vararg p0: String?): String {
+            val request = Request.Builder()
+                .url(url)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+                for ((name, value) in response.headers) {
+                    println("$name: $value")
+                }
+
+                return response.body!!.string()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,22 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun login() {
-        Toast.makeText(this, "login pressed", Toast.LENGTH_SHORT).show()
-
-        var request = Request.Builder()
-            .url(url)
-            .build()
-
-        client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) throw IOException("Unexpected code $response")
-
-            for ((name, value) in response.headers) {
-                println("$name: $value")
-            }
-
-            var txt = response.body!!.string()
-            println(txt)
-            Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
-        }
+        val txt = LoginAsyncTask().execute().get()
+        Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
     }
 }
