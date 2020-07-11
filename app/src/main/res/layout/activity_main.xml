@@ -20,13 +20,13 @@
         app:srcCompat="@drawable/teslamodel3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Sign in"
+        android:onClick="login"
+        android:text="@string/sign_in_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
@@ -36,12 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="11"
-        android:hint="Please enter your password"
+        android:hint="@string/password_field_default"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -49,10 +50,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="11"
-        android:hint="Please enter your username"
+        android:hint="@string/username_field_default"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:importantForAutofill="no" />
 </androidx.constraintlayout.widget.ConstraintLayout>
