@@ -1,38 +1,15 @@
 package com.example.cmpe235teslaapp
 
-import android.os.AsyncTask
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import com.example.cmpe235teslaapp.NetworkAsyncTasks.PostToApi
 import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
-//    var url = "https://owner-api.teslamotors.com/"
-    class LoginAsyncTask : AsyncTask<String?, Void?, String>() {
-        var url = "https://ya6s9ee52e.execute-api.us-east-1.amazonaws.com/dev/"
-        private val client = OkHttpClient()
-
-        override fun doInBackground(vararg p0: String?): String {
-            val request = Request.Builder()
-                .url(url)
-                .build()
-
-            client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) throw IOException("Unexpected code $response")
-
-                for ((name, value) in response.headers) {
-                    println("$name: $value")
-                }
-
-                return response.body!!.string()
-            }
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,8 +18,14 @@ class MainActivity : AppCompatActivity() {
         signInButton.setOnClickListener {login()}
     }
 
-    fun login() {
-        val txt = LoginAsyncTask().execute().get()
-        Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
+    private fun login() {
+        try {
+            val username: EditText = findViewById(R.id.editTextTextUsername)
+            val password: EditText = findViewById(R.id.editTextTextPassword)
+            val txt = PostToApi(username.text.toString(), password.text.toString()).execute().get()
+            Toast.makeText(this, txt, Toast.LENGTH_LONG).show()
+        } catch (e: IOException) {
+            Toast.makeText(this, "Login failed. Please try again", Toast.LENGTH_SHORT).show()
+        }
     }
 }
