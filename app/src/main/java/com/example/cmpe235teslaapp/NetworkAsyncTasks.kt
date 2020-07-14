@@ -30,8 +30,8 @@ class NetworkAsyncTasks {
         private val body = """
             {
               "grant_type": "password",
-              "client_id": "THE CLIENT ID",
-              "client_secret": "THE CLIENT SECRET",
+              "client_id": "CLIENT ID",
+              "client_secret": "CLIENT SECRET",
               "email": "$username",
               "password": "$password"
             }
@@ -47,7 +47,7 @@ class NetworkAsyncTasks {
                 .build()
 
             client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                if (!response.isSuccessful) return "Login is not successful"
 
                 return response.body!!.string()
             }
