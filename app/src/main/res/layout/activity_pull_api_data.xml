@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".PullApiData">
+
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/switch3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:text="Unlock Vehicle"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:switchMinWidth="55dp"/>
+
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginEnd="104dp"
+        android:gravity="center"
+        android:switchMinWidth="55dp"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/switch4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch2"
+        tools:text="Lock Vehicle" />
+
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginEnd="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/switch5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch3"
+        tools:text="Flash Headlights"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:switchMinWidth="55dp" />
+
+
+    <Switch
+        android:id="@+id/switch5"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="284dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch4"
+        tools:text="Open Trunk"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:switchMinWidth="55dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="413dp"
+        android:layout_height="223dp"
+        android:layout_marginBottom="508dp"
+        android:contentDescription="@teslaimage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/teslapullapi" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="322dp"
+        android:layout_height="46dp"
+        android:background="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Tesla Model 3 Controls" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="413dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="113dp"
+        android:contentDescription="@string/backgroundtes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch5"
+        app:srcCompat="@drawable/backgroundtes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
