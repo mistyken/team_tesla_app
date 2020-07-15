@@ -3,4 +3,6 @@
     <string name="password_field_default">Password</string>
     <string name="username_field_default">Username</string>
     <string name="sign_in_button">Sign in</string>
+    <string name="teslaimage">teslaimage</string>
+    <string name="backgroundtest">backgroundtest</string>
 </resources>
