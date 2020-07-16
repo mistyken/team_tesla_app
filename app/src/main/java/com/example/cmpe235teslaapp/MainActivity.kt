@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        val username: EditText = findViewById(R.id.editTextTextUsername)
-        val password: EditText = findViewById(R.id.editTextTextPassword)
+        val username: EditText = findViewById(R.id.editTextUsername)
+        val password: EditText = findViewById(R.id.editTextPassword)
         val txt = PostToApi(username.text.toString(), password.text.toString()).execute().get()
         if (txt == "Login is not successful") {
             Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
