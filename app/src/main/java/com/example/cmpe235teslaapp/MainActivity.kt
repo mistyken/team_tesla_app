@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cmpe235teslaapp.NetworkAsyncTasks.PostToApi
 
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +17,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        val username: EditText = findViewById(R.id.editTextTextUsername)
-        val password: EditText = findViewById(R.id.editTextTextPassword)
+        val username: EditText = findViewById(R.id.editTextUsername)
+        val password: EditText = findViewById(R.id.editTextPassword)
         val txt = PostToApi(username.text.toString(), password.text.toString()).execute().get()
         if (txt == "Login is not successful") {
             Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
