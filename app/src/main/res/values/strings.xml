@@ -8,4 +8,9 @@
     <string name="sign_in_with_tesla">Sign in with Tesla</string>
     <string name="teslaicon">teslaicon</string>
     <string name="tesla_remote_actions">Tesla Remote Actions</string>
+    <string name="odometer">Odometer</string>
+    <string name="vin_number">VIN Number</string>
+    <string name="car_name">Car name</string>
+    <string name="battery_level">Battery Level</string>
+    <string name="remote_options">Remote Options</string>
 </resources>
