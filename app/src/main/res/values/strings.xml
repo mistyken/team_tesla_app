@@ -7,4 +7,5 @@
     <string name="backgroundtest">backgroundtest</string>
     <string name="sign_in_with_tesla">Sign in with Tesla</string>
     <string name="teslaicon">teslaicon</string>
+    <string name="tesla_remote_actions">Tesla Remote Actions</string>
 </resources>
