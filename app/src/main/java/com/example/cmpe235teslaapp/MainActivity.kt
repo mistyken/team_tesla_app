@@ -1,11 +1,11 @@
 package com.example.cmpe235teslaapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cmpe235teslaapp.NetworkAsyncTasks.PostToApi
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,17 +13,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val signInButton: Button = findViewById(R.id.sign_in_button)
-        signInButton.setOnClickListener {login()}
+        signInButton.setOnClickListener {
+            val token = login()
+            if (token != "Login is not successful") {
+                val intent = Intent(this, GeneralView::class.java)
+                intent.putExtra("token", token)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, token, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
-    private fun login() {
+    private fun login(): String? {
         val username: EditText = findViewById(R.id.editTextUsername)
         val password: EditText = findViewById(R.id.editTextPassword)
-        val txt = PostToApi(username.text.toString(), password.text.toString()).execute().get()
-        if (txt == "Login is not successful") {
-            Toast.makeText(this, txt, Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, txt, Toast.LENGTH_LONG).show()
-        }
+        return Login(username.text.toString(), password.text.toString())
     }
 }
