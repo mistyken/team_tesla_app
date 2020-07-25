@@ -11,8 +11,8 @@ class RemoteActionView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_remote_action)
 
-        val actionBar = supportActionBar
-        actionBar!!.setDisplayHomeAsUpEnabled(true)
+//        val actionBar = supportActionBar
+//        actionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {
