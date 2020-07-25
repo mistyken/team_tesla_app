@@ -16,8 +16,9 @@ class MainActivity : AppCompatActivity() {
         signInButton.setOnClickListener {
             val token = login()
             if (token != "Login is not successful") {
-                val intent = Intent(this, GeneralView::class.java)
-                intent.putExtra("token", token)
+                val intent = Intent(this, GeneralView::class.java).apply {
+                    putExtra("token", token)
+                }
                 startActivity(intent)
             } else {
                 Toast.makeText(this, token, Toast.LENGTH_LONG).show()
