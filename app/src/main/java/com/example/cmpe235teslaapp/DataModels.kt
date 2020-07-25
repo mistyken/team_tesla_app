@@ -17,6 +17,28 @@ data class Vehicle(
     val display_name: String
 )
 
+@JsonIgnoreProperties(ignoreUnknown=true)
+data class VehicleData(
+    val response: VehicleDataResponse
+)
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+data class VehicleDataResponse(
+    val charge_state: ChargeState,
+    val vehicle_state: VehicleState
+)
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+data class ChargeState(
+    val battery_level: Int,
+    val battery_range: Float
+)
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+data class VehicleState(
+    val odometer: Float
+)
+
 data class Vehicles(
     val count: Int,
     val response: List<Vehicle>

@@ -20,11 +20,14 @@ class GeneralView : AppCompatActivity() {
         val token = intent.extras?.getString("token")
         if (token != null) {
             val vehicles = getVehicles(token)
+            val cid = vehicles.response[0].id
+            wakeVehicle(token, cid)
+            val vehicle_data: VehicleData = getVehicleData(token, cid)
 
-            for (vehicle in vehicles.response) {
-                vin.text = vehicle.vin
-                car_name.text = vehicle.display_name
-            }
+            vin.text = vehicles.response[0].vin
+            car_name.text = vehicles.response[0].display_name
+            odometer.text = vehicle_data.response.vehicle_state.odometer.toString()
+            battery_level.text = vehicle_data.response.charge_state.battery_level.toString() + "%"
         }
 
         button.setOnClickListener {

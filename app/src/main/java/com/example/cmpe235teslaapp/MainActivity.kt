@@ -29,6 +29,6 @@ class MainActivity : AppCompatActivity() {
     private fun login(): String? {
         val username: EditText = findViewById(R.id.editTextUsername)
         val password: EditText = findViewById(R.id.editTextPassword)
-        return Login(username.text.toString(), password.text.toString())
+        return loginCall(username.text.toString(), password.text.toString())
     }
 }
