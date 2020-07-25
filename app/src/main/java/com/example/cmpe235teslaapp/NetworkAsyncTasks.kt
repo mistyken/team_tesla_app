@@ -14,9 +14,11 @@ private val client = OkHttpClient()
 private val mapper = jacksonObjectMapper()
 
 class NetworkAsyncTasks {
-    class GetFromApi(val path: String) : AsyncTask<String?, Void?, String>() {
+    class GetFromApi(val path: String, val token: String) : AsyncTask<String?, Void?, String>() {
         override fun doInBackground(vararg p0: String?): String {
             val request = Request.Builder()
+                .addHeader("Content-Type","application/json")
+                .addHeader("Authorization", "Bearer $token")
                 .url(url + path)
                 .build()
 
@@ -66,4 +68,9 @@ fun Login(username: String, password: String): String? {
     } catch (e: IOException) {
         "Login is not successful"
     }
+}
+
+fun getVehicles(token: String): Vehicles {
+    val resp = NetworkAsyncTasks.GetFromApi("api/1/vehicles", token).execute().get()
+    return mapper.readValue(resp)
 }

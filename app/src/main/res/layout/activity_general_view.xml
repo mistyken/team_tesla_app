@@ -38,7 +38,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/odometer"
         android:layout_width="203dp"
         android:layout_height="36dp"
         android:layout_marginStart="40dp"
@@ -56,14 +56,14 @@
         android:textColor="#000"
         android:textFontWeight="1000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/car_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/vin_number"
         android:layout_width="203dp"
         android:layout_height="36dp"
         android:layout_marginStart="40dp"
@@ -81,14 +81,14 @@
         android:textColor="#000"
         android:textFontWeight="1000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintBottom_toTopOf="@+id/battery_level"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/car_name" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/car_name"
         android:layout_width="203dp"
         android:layout_height="36dp"
         android:layout_marginStart="40dp"
@@ -106,14 +106,14 @@
         android:textColor="#000"
         android:textFontWeight="1000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/vin_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/odometer" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/battery_level"
         android:layout_width="203dp"
         android:layout_height="36dp"
         android:layout_marginStart="40dp"
@@ -134,7 +134,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/vin_number" />
 
     <Button
         android:id="@+id/button"
