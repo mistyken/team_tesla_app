@@ -18,6 +18,8 @@ private val client: OkHttpClient = OkHttpClient.Builder()
     .callTimeout(30, TimeUnit.SECONDS)
     .build()
 private val mapper = jacksonObjectMapper()
+private var client_id: String? = System.getenv("client_id")
+private var client_secret: String? = System.getenv("client_secret")
 
 class NetworkAsyncTasks {
     class GetFromApi(val path: String, val token: String) : AsyncTask<String?, Void?, String>() {
@@ -63,8 +65,8 @@ fun loginCall(username: String, password: String): String? {
     val body = """
             {
               "grant_type": "password",
-              "client_id": "81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384",
-              "client_secret": "c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b093bb2fa3",
+              "client_id": "$client_id",
+              "client_secret": "$client_secret",
               "email": "$username",
               "password": "$password"
             }
