@@ -17,4 +17,5 @@
     <string name="unlock_vehicle">Unlock Vehicle</string>
     <string name="lock_vehicle">Lock Vehicle</string>
     <string name="honk_horn">Honk Horn</string>
+    <string name="historic_battery">Historic Battery</string>
 </resources>
