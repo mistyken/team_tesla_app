@@ -18,11 +18,11 @@ private val client: OkHttpClient = OkHttpClient.Builder()
     .callTimeout(30, TimeUnit.SECONDS)
     .build()
 private val mapper = jacksonObjectMapper()
-private var client_id: String? = System.getenv("client_id")
-private var client_secret: String? = System.getenv("client_secret")
+private var client_id: String? = "client id"
+private var client_secret: String? = "client secret"
 
 class NetworkAsyncTasks {
-    class GetFromApi(val path: String, val token: String) : AsyncTask<String?, Void?, String>() {
+    class GetFromApi(val path: String, val token: String?) : AsyncTask<String?, Void?, String>() {
         override fun doInBackground(vararg p0: String?): String {
             val request = Request.Builder()
                 .addHeader("Content-Type","application/json")
@@ -38,7 +38,7 @@ class NetworkAsyncTasks {
         }
     }
 
-    class PostToApi(val body: String, val token: String, val path: String) : AsyncTask<String?, Void?, String>() {
+    class PostToApi(val body: String, val token: String?, val path: String) : AsyncTask<String?, Void?, String>() {
         override fun doInBackground(vararg p0: String?): String {
             val request = Request.Builder().url(url + path)
                 .post(body.toRequestBody(MEDIA_TYPE_MARKDOWN))
@@ -81,16 +81,32 @@ fun loginCall(username: String, password: String): String? {
     }
 }
 
-fun getVehicles(token: String): Vehicles {
+fun getVehicles(token: String?): Vehicles {
     val resp = NetworkAsyncTasks.GetFromApi("api/1/vehicles", token).execute().get()
     return mapper.readValue(resp)
 }
 
-fun wakeVehicle(token: String, id: Long) {
+fun wakeVehicle(token: String?, id: Long) {
     NetworkAsyncTasks.PostToApi("", token,"api/1/vehicles/$id/wake_up").execute().get()
 }
 
-fun getVehicleData(token: String, id: Long): VehicleData {
+fun getVehicleData(token: String?, id: Long): VehicleData {
     val resp =  NetworkAsyncTasks.GetFromApi("api/1/vehicles/$id/vehicle_data", token).execute().get()
     return mapper.readValue(resp)
+}
+
+fun unlockVehicle(token: String?, id: Long) {
+    NetworkAsyncTasks.PostToApi("", token,"api/1/vehicles/$id/command/door_unlock").execute().get()
+}
+
+fun lockVehicle(token: String?, id: Long) {
+    NetworkAsyncTasks.PostToApi("", token, "api/1/vehicles/$id/command/door_lock").execute().get()
+}
+
+fun flashHeadlights(token: String?, id: Long) {
+    NetworkAsyncTasks.PostToApi("", token, "api/1/vehicles/$id/command/flash_lights").execute().get()
+}
+
+fun honkHorn(token: String?, id: Long) {
+    NetworkAsyncTasks.PostToApi("", token, "api/1/vehicles/$id/command/honk_horn").execute().get()
 }

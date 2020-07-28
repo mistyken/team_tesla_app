@@ -16,5 +16,5 @@
     <string name="flash_headlights">Flash Headlights</string>
     <string name="unlock_vehicle">Unlock Vehicle</string>
     <string name="lock_vehicle">Lock Vehicle</string>
-    <string name="open_trunk">Open Trunk</string>
+    <string name="honk_horn">Honk Horn</string>
 </resources>
