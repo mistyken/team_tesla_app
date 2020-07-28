@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/include2"
-        layout="@layout/action_bar" />
+        layout="@layout/historic_battery_bar" />
 
     <com.aachartmodel.aainfographics.AAInfographicsLib.AAChartCreator.AAChartView
         android:id="@+id/AAChartView"
