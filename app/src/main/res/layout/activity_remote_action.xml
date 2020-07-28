@@ -12,77 +12,85 @@
         layout="@layout/action_bar" />
 
     <Switch
-        android:id="@+id/switch2"
+
+        android:id="@+id/unlock_vehicle"
         android:layout_width="203dp"
         android:layout_height="47dp"
         android:layout_marginStart="104dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="104dp"
         android:gravity="center"
+        android:showText="false"
         android:switchMinWidth="55dp"
+        android:text="@string/unlock_vehicle"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/switch3"
+        app:layout_constraintBottom_toTopOf="@+id/lock_vehicle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Unlock Vehicle" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Switch
-        android:id="@+id/switch5"
+        android:id="@+id/honk_horn"
         android:layout_width="203dp"
         android:layout_height="47dp"
         android:layout_marginStart="104dp"
         android:layout_marginEnd="104dp"
-        android:layout_marginBottom="61dp"
+        android:layout_marginBottom="60dp"
         android:gravity="center"
+        android:showText="false"
         android:switchMinWidth="55dp"
+        android:text="@string/honk_horn"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch4"
-        tools:text="Open Trunk" />
+        app:layout_constraintTop_toBottomOf="@+id/flash_headlights" />
 
     <Switch
-        android:id="@+id/switch3"
+        android:id="@+id/lock_vehicle"
         android:layout_width="203dp"
         android:layout_height="47dp"
         android:layout_marginStart="104dp"
         android:layout_marginEnd="104dp"
         android:gravity="center"
+        android:showText="false"
         android:switchMinWidth="55dp"
+        android:text="@string/lock_vehicle"
         android:textSize="19sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/flash_headlights"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2"
-        tools:text="Lock Vehicle" />
+        app:layout_constraintTop_toBottomOf="@+id/unlock_vehicle" />
 
     <Switch
-        android:id="@+id/switch4"
+        android:id="@+id/flash_headlights"
         android:layout_width="203dp"
         android:layout_height="47dp"
         android:layout_marginStart="104dp"
         android:layout_marginEnd="104dp"
         android:gravity="center"
+        android:showText="false"
         android:switchMinWidth="55dp"
+        android:text="@string/flash_headlights"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/switch5"
+        app:layout_constraintBottom_toTopOf="@+id/honk_horn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch3"
-        tools:text="Flash Headlights" />
+        app:layout_constraintTop_toBottomOf="@+id/lock_vehicle" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="413dp"
         android:layout_height="223dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="50dp"
         android:contentDescription="@string/teslaimage"
-        app:layout_constraintBottom_toTopOf="@+id/switch2"
+        app:layout_constraintBottom_toTopOf="@+id/unlock_vehicle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

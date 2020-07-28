@@ -13,4 +13,8 @@
     <string name="car_name">Car name</string>
     <string name="battery_level">Battery Level</string>
     <string name="remote_options">Remote Options</string>
+    <string name="flash_headlights">Flash Headlights</string>
+    <string name="unlock_vehicle">Unlock Vehicle</string>
+    <string name="lock_vehicle">Lock Vehicle</string>
+    <string name="honk_horn">Honk Horn</string>
 </resources>
